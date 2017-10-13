@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ShewMatthew_MurphyWilliam</string>
+    <string-array name="continents">
+        <item>Americas</item>
+        <item>Africa</item>
+        <item>Asia</item>
+        <item>Europe</item>
+        <item>Oceania</item>
+    </string-array>
+</resources>

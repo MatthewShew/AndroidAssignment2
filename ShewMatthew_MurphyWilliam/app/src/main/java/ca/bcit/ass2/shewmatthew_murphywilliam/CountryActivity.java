@@ -25,7 +25,7 @@ public class CountryActivity extends AppCompatActivity {
     private ListView lv;
     private ProgressDialog pDialog;
     // URL to get contacts JSON
-    private static String SERVICE_URL = "http://restcountries.eu/rest/v2/region/";
+    private String SERVICE_URL = "http://restcountries.eu/rest/v2/region/";
 
     ArrayList<Country> countryList;
 
@@ -37,6 +37,7 @@ public class CountryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String continent = (String) intent.getExtras().get("selected");
         SERVICE_URL = SERVICE_URL + continent;
+        System.out.println(continent);
 
         countryList = new ArrayList<Country>();
         new GetCountries().execute();

@@ -22,7 +22,7 @@ import java.net.URL;
  * Created by A00127241 on 2017-10-02.
  */
 
-class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
+public class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
     private final WeakReference<ImageView> imageViewReference;
 
     public ImageDownloaderTask(ImageView imageView) {

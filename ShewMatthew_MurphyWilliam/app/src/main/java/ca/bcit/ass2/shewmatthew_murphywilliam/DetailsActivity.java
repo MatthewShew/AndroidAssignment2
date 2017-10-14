@@ -7,6 +7,8 @@ import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
 
         TextView name = (TextView) findViewById(R.id.detailName);
         TextView capital = (TextView) findViewById(R.id.detailCapital);
@@ -29,23 +32,21 @@ public class DetailsActivity extends AppCompatActivity {
         TextView borders = (TextView) findViewById(R.id.detailBorders);
         WebView flag = (WebView) findViewById(R.id.flag);
 
-        String borderString = (String) intent.getExtras().get("borders");
-        String flagString = intent.getExtras().getString("flag");
-        name.setText((String) intent.getExtras().get("name"));
-        capital.setText("Capital: " + (String) intent.getExtras().get("capital"));
-        region.setText("Region: " + (String) intent.getExtras().get("region"));
-        population.setText("Population: " + intent.getExtras().get("population"));
-        area.setText("Area: " +  intent.getExtras().get("area"));
+        String flagString = bundle.getString("flag");
+        name.setText((String) bundle.get("name"));
+        capital.setText(getResources().getString(R.string.capital, bundle.get("capital")));
+        region.setText(getResources().getString(R.string.region, bundle.get("region")));
+        population.setText(getResources().getString(R.string.population, bundle.get("population")));
+        area.setText(getResources().getString(R.string.area, bundle.get("area")));
 
-        if (borderString.equalsIgnoreCase("[]")) {
-            borders.setText("Borders: N/A");
-        } else {
-            borders.setText((String) intent.getExtras().get("borders"));
+        String borderString = bundle.getString("borders");
+        if ("[]".equalsIgnoreCase(borderString)) {
+            borderString = "N/A";
         }
+        borders.setText(getResources().getString(R.string.borders, borderString));
 
         flag.getSettings().setLoadWithOverviewMode(true);
         flag.getSettings().setUseWideViewPort(true);
-        flag.loadUrl(intent.getExtras().getString("flag"));
-
+        flag.loadUrl(flagString);
     }
 }

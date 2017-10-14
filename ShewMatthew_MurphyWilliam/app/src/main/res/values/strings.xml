@@ -7,4 +7,9 @@
         <item>Europe</item>
         <item>Oceania</item>
     </string-array>
+    <string name="capital">Capital: %1$s</string>
+    <string name="region">Region: %1$s</string>
+    <string name="population">Population: %1$s</string>
+    <string name="area">Area: %1$s</string>
+    <string name="borders">Borders: %1$s</string>
 </resources>
